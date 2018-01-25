@@ -27,8 +27,8 @@ The goals / steps of this project are the following:
 My pipeline operates on a numpy image as input. It consisted of 6 steps:
 
 1. (EXTRACT) Extract the white and yellow attributes of an image (via HSV conversion)
-2. (REMOVE) Apply a gaussian blur on the image (via grayscale conversion) to remove specular 
-	noise from the image
+2. (REMOVE) Apply a gaussian blur on the image (via grayscale conversion) to remove image 
+	noise
 3. (EDGE DETECTION) Execute a Canny operation to find the edges of line features in the image
 4. (CROP ROI) Create a ROI mask by cropping the image to only the field of view of the vehicle and the road, which
    is [almost] a trapazoidial shape.
