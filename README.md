@@ -50,7 +50,7 @@ Using the project template, I refactored the following code:
 
 I also refactored the helper functions:
 
-	I added draw_solid_lines to convert the resulting hough piece-wise lines into a continuous solid line for both the left and right lane lines. I used the average slope method to determine the slope of the left and right lane line. I also incorporated a low pass filter to prevent sharp changes in slope due to false positives/noise. I also added in error handling logic in the event the lines were horizontal (slope = NaN or INF). This provides a smoother estimation of lane lines considering vehicles can't "jump" position.
+I added draw_solid_lines to convert the resulting hough piece-wise lines into a continuous solid line for both the left and right lane lines. I used the average slope method to determine the slope of the left and right lane line. I also incorporated a low pass filter to prevent sharp changes in slope due to false positives/noise. I also added in error handling logic in the event the lines were horizontal (slope = NaN or INF). This provides a smoother estimation of lane lines considering vehicles can't "jump" position.
 
 #### 2. Identify potential shortcomings with your current pipeline
 
