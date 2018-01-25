@@ -22,7 +22,7 @@ The goals / steps of this project are the following:
 ---
 ### Reflection
 
-#### 1. Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
+#### Describe your pipeline. As part of the description, explain how you modified the draw_lines() function.
 
 My pipeline operates on a numpy image as input. It consisted of 6 steps:
 
@@ -52,22 +52,28 @@ I also refactored the helper functions:
 
 	I added draw_solid_lines to convert the resulting hough piece-wise lines into a continuous solid line for both the left and right lane lines. I used the average slope method to determine the slope of the left and right lane line. I also incorporated a low pass filter to prevent sharp changes in slope due to false positives/noise. I also added in error handling logic in the event the lines were horizontal (slope = NaN or INF). This provides a smoother estimation of lane lines considering vehicles can't "jump" position.
 
-#### 2. Identify potential shortcomings with your current pipeline
+#### Identify potential shortcomings with your current pipeline
 
 1. One potential shortcoming would be what would happen when the road has lots of curves or changes in elevation. Current slope estimate considers a good amount of distance away from the vehicle (field of view all the way to the horizon) to determine slope of the left and right lane lines. I added a variable, upper_boundary_y that can be used to shorten the horizon considered and solve the problem, but eventually will not work on extremely curvy or hilly roads.
 
-2. Another short coming is lighting. This pipeline will not work in the dark (no headlights). Since I use feature extraction by color, yellows and whites may not be detected either by use of headlights, oncoming cars, direct sunlight etc...
+2. Another short coming is lighting. This pipeline will not work in the dark (no headlights). Since I use feature extraction by color, yellows and whites may not be detected either by use of poor imagery, bright spots/headlights, oncoming car lighting, ground that is close to white or yellow colors, concrete texture (close to white), reflections/water, direct sunlight etc... 
 
-3. Another short coming is other white or yellow objects in the field of view of the vehicle. Those would be detected as false positives and cause the lane lines to be draw improperly. The low pass filter was suppose to help avoid this.
+In addition, this technique does not work in poor weather conditions.
+
+3. Another short coming is other white or yellow objects (e.g. cars) in the field of view of the vehicle. Those would be detected as false positives and cause the lane lines to be drawn improperly. The low pass filter was suppose to help avoid this.
 
 4. Another short coming is optical occlusion. If the white or yellow lines are blocked by an object, lines cannot be determined using this method.
 
-#### 3. Suggest possible improvements to your pipeline
+#### Suggest possible improvements to your pipeline
 
 1. A possible improvement would be to use background subtraction to identify only road surface, the initially crop an image with that added to the pipeline.
 
 2. Another potential improvement could be to determine a better way calculate slope of the left and right lane lines that can follow the curvature of the road as it starts to bend.
 
 3. Another potential improvement could be to determine a better way to reject lane lines that fall obviously outside and off the road, possibly see if a lane line fits in or out of the cropped polygon ROI.
+
+4. Another is to perform ground plane extraction to determine what is "road" and what is not.
+
+5. Another improvement is to integrate other sensor data to this technique (lidar, rgbd, radar, etc...)
 
 4. Another potential improvement could be to color process the image before entering it into the pipeline, either by applying HDR techniques or thresholding enhance the white and yellow colors.
