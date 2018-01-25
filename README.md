@@ -14,11 +14,12 @@ The goals / steps of this project are the following:
 * Reflect on your work in a written report
 
 
-[//]: # (Image References)
+### Image References
 
-[image1]: ./examples/grayscale.jpg "Grayscale"
-[image1]: ./examples/line-segments-example.jpg "Lane Line Overlay"
-[image1]: ./examples/P1_example.mp4 "Example of expect result of software"
+<img src="examples/grayscale.jpg" width="480" alt="Combined Image" />
+<img src="examples/line-segments-example.jpg" width="480" alt="Combined Image" />
+<img src="examples/P1_example.mp4" width="480" alt="Combined Image" />
+
 
 ---
 
