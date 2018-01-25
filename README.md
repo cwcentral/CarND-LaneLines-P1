@@ -56,7 +56,7 @@ I added draw_solid_lines to convert the resulting hough piece-wise lines into a 
 
 1. One potential shortcoming would be what would happen when the road has lots of curves or changes in elevation. Current slope estimate considers a good amount of distance away from the vehicle (field of view all the way to the horizon) to determine slope of the left and right lane lines. I added a variable, upper_boundary_y that can be used to shorten the horizon considered and solve the problem, but eventually will not work on extremely curvy or hilly roads.
 
-2. Another short coming is lighting. This pipeline will not work in the dark (no headlights). Since I use feature extraction by color, yellows and whites may not be detected either by use of poor imagery, bright spots/headlights, oncoming car lighting, ground that is close to white or yellow colors, concrete texture (close to white), reflections/water, direct sunlight etc... 
+2. Another short coming is lighting. This pipeline will not work in the dark (no headlights), such as underpasses. Since I use feature extraction by color, yellows and whites may not be detected either by use of poor imagery, bright spots/headlights, oncoming car lighting, ground that is close to white or yellow colors, concrete texture (close to white), reflections/water, direct sunlight etc... 
 
 In addition, this technique does not work in poor weather conditions.
 
